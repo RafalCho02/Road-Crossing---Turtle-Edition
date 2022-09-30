@@ -28,13 +28,16 @@ while game_is_on:
     car.car_reach_goal()
     scoreboard.update_scoreboard()
     if player.ycor() >= 260:
+        # COLOR CHANGING
         time.sleep(0.1)
         screen.bgcolor(random.choice(WINNING_COLORS))
         time.sleep(0.1)
         screen.bgcolor('white')
+        # INCREASE SCORE
         player.achieve_line()
         scoreboard.increase_score()
         car.speed_up()
+    # GAME OVER
     for cars in car.car_numbers[1:]:
         if player.distance(cars) < 20:
             scoreboard.game_over()
